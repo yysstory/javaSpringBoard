@@ -2,15 +2,25 @@ package java03.test01;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
 public class BoardDao {
 
+/*	public static void main(String[] args) {
+		BoardDao boardDao = new BoardDao();
+		
+	}*/
+	
+	
 	Connection con = null;
+	PreparedStatement pstmt=null;
 	Statement stmt = null;
 	ResultSet rs = null;
+	Board board;
 
 	public BoardDao() {
 
@@ -23,7 +33,7 @@ public class BoardDao {
 							+ "?useUnicode=true&characterEncoding=utf8",
 					"study", "study");
 			// System.out.println("DBMS에 연결됨");
-			stmt = con.createStatement();
+			
 			// System.out.println("Statement 객체 준비 완료.");
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -32,9 +42,12 @@ public class BoardDao {
 
 	public void save(Board board) throws Exception {
 		
-		stmt.executeUpdate("INSERT INTO PRODUCTS(PNAME,QTY,MKNO)"
-				+ " VALUES('넥서스10', 99, 6)");
-		System.out.println("데이터 입력 완료.");
+		pstmt= con.prepareStatement("INSERT INTO PRODUCTS(PNAME,QTY,MKNAME) VALUES(?,?,?)");
+		pstmt.setString(1, board.pname);
+		pstmt.setInt(2, board.qty);
+		pstmt.setInt(3, board.mkname);
+		pstmt.executeUpdate();
+		DBend();
 	}
 
 	public void load(Board board) throws Exception {

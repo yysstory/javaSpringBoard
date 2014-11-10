@@ -1,6 +1,9 @@
 package java03.test01.commnad;
 
+import java.util.HashMap;
 import java.util.Scanner;
+
+import java03.test01.Board;
 import java03.test01.BoardDao;
 import java03.test01.annotation.Command;
 import java03.test01.annotation.Component;
@@ -28,8 +31,25 @@ public class BoardCommand {
 
 	
 	@Command("add")
-	public void doADD(){
-		System.out.println("add 메소드 호출");		
+	public void doADD(HashMap<String, Object> params){
+		Board board= new Board();
+		
+		
+		System.out.println("제품명 : ");
+		board.setPname(scanner.nextLine());
+		System.out.println("수량 : ");
+		board.setQty(Integer.parseInt(scanner.nextLine()));
+		System.out.println("제조사 : ");
+		board.setMkname(Integer.parseInt(scanner.nextLine()));
+		
+		try {
+			boardDao.save(board);
+
+			System.out.println("저장완료");	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		
 	}
 

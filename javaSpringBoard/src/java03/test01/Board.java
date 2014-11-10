@@ -5,13 +5,13 @@ public class Board {
 //제품이름 수량 제조사
 	String pname;
 	int qty;
-	String mkname;
+	int mkname;
 	
 	public Board(){
 		
 	}
 	
-	public Board(String pname,int qty,String mkname) {
+	public Board(String pname,int qty,int mkname) {
 	
 		this.pname=pname;
 		this.qty=qty;
@@ -40,12 +40,12 @@ public class Board {
 	}
 
 
-	public String getMkname() {
+	public int getMkname() {
 		return mkname;
 	}
 
 
-	public void setMkname(String mkname) {
+	public void setMkname(int mkname) {
 		this.mkname = mkname;
 	}
 
