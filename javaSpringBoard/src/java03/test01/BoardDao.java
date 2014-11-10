@@ -70,9 +70,10 @@ public class BoardDao {
 	public void delete(int index) {
 		try {
 			
-			pstmt = con.prepareStatement("DELETE FROM PRODUCTS WHERE PNO =?");
+			pstmt = con.prepareStatement("DELETE FROM PRODUCTS WHERE PNO = ?");
 			pstmt.setInt(1,index);
-			
+			pstmt.executeUpdate();
+			System.out.println(index+"번 삭제 완료");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

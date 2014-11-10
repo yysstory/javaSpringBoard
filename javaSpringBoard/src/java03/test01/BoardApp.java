@@ -121,7 +121,7 @@ public class BoardApp {
 	}
 
 	private String[] promp() {
-		System.out.print(">>");
+		System.out.print(">");
 		String arr[] = scanner.nextLine().split(" ");
 		return arr;
 	}

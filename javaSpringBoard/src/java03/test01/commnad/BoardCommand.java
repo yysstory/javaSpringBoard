@@ -66,7 +66,6 @@ public class BoardCommand {
 
 		ArrayList<String> inputParams = (ArrayList<String>) params.get("inputParams");
 		boardDao.delete(Integer.parseInt(inputParams.get(0)));
-
 	}
 
 }
