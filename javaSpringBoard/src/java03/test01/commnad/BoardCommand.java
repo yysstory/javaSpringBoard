@@ -40,7 +40,7 @@ public class BoardCommand {
 		System.out.println("수량 : ");
 		board.setQty(Integer.parseInt(scanner.nextLine()));
 		System.out.println("제조사 : ");
-		board.setMkname(Integer.parseInt(scanner.nextLine()));
+		board.setMkno(Integer.parseInt(scanner.nextLine()));
 		
 		try {
 			boardDao.save(board);

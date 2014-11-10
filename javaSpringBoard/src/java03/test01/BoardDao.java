@@ -42,12 +42,11 @@ public class BoardDao {
 
 	public void save(Board board) throws Exception {
 		
-		pstmt= con.prepareStatement("INSERT INTO PRODUCTS(PNAME,QTY,MKNAME) VALUES(?,?,?)");
+		pstmt= con.prepareStatement("INSERT INTO PRODUCTS(PNAME,QTY,MKNO) VALUES(?,?,?)");
 		pstmt.setString(1, board.pname);
 		pstmt.setInt(2, board.qty);
-		pstmt.setInt(3, board.mkname);
+		pstmt.setInt(3, board.mkno);
 		pstmt.executeUpdate();
-		DBend();
 	}
 
 	public void load(Board board) throws Exception {
