@@ -24,8 +24,14 @@ public class BoardCommand {
 	}
 	
 	@Command("list")
-	public void doList(){
-		System.out.println("list 메소드 호출");		
+	public void doList(HashMap<String, Object> params){
+		
+		try {
+			boardDao.load();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		
 	}
 
@@ -55,15 +61,16 @@ public class BoardCommand {
 
 	
 	@Command("update")
-	public void doUpdate(){
+	public void doUpdate(HashMap<String, Object> params){
 		System.out.println("update 메소드 호출");		
 		
 	}
 
 	
 	@Command("delete")
-	public void doDelete(){
-		System.out.println("delete 메소드 호출");		
+	public void doDelete(HashMap<String, Object> params){
+
+	//	params.get()
 		
 	}
 

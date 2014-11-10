@@ -6,17 +6,18 @@ public class Board {
 	String pname;
 	int qty;
 	int mkno;
+	int pno;
 	
 	public Board(){
 		
 	}
 	
-	public Board(String pname,int qty,int mkno) {
+	public Board(String pname,int qty,int mkno,int pno) {
 	
 		this.pname=pname;
 		this.qty=qty;
 		this.mkno=mkno;
-		
+		this.pno=pno;
 	}
 
 
@@ -47,6 +48,14 @@ public class Board {
 
 	public void setMkno(int mkno) {
 		this.mkno = mkno;
+	}
+
+	public int getPno() {
+		return pno;
+	}
+
+	public void setPno(int pno) {
+		this.pno = pno;
 	}
 
 	

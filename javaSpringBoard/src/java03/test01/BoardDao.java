@@ -49,27 +49,35 @@ public class BoardDao {
 		pstmt.executeUpdate();
 	}
 
-	public void load(Board board) throws Exception {
+	public void load() throws Exception {
+		stmt = con.createStatement();
 		rs = stmt.executeQuery("SELECT * FROM PRODUCTS");
-	      System.out.println("서버에 질의 완료. ResultSet 준비 완료.");
+		while (rs.next()) {
+	        System.out.print(rs.getInt("PNO") + ",");
+	        System.out.print(rs.getString("PNAME") + ",");
+	        System.out.print(rs.getInt("QTY") + ",");
+	        System.out.println(rs.getInt("MKNO"));
+		}
 	}
 
 	public void update(Board board) throws Exception {
-		stmt.executeUpdate("UPDATE PRODUCTS SET" + " PNAME='넥서스10', QTY=999"
-				+ " WHERE PNO=10");
-		System.out.println("데이터 변경 완료.");
+
+		
+		pstmt= con.prepareStatement("UPDATE PRODUCTS SET PNAME=?, QTY=?  WHERE PNO=?");
 
 	}
 
 	public void delete(int index) {
 		try {
-			stmt.executeUpdate("DELETE FROM PRODUCTS " + "WHERE PNO IN(9,10)");
+			
+			pstmt = con.prepareStatement("DELETE FROM PRODUCTS WHERE PNO =?");
+			pstmt.setInt(1,index);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		System.out.println("데이터 삭제 완료.");
+		
 	}
-
 	public void DBend() {
 
 		try {
