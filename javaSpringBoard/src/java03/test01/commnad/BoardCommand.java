@@ -70,7 +70,7 @@ public class BoardCommand {
 	@Command("delete")
 	public void doDelete(HashMap<String, Object> params){
 
-	//	params.get()
+
 		
 	}
 
